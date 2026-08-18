@@ -1,0 +1,12 @@
+/* High Plateau webfonts.
+   NOTE: served from Google Fonts. No vendor binaries were provided — see readme.md
+   "Font substitution" for the ask to the user. */
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..700&family=Noto+Sans+Tibetan:wght@400..700&family=Noto+Serif+Tibetan:wght@400..700&display=swap");
+
+:root {
+  --font-display: "Gabarito", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-tibetan: "Noto Sans Tibetan", "Noto Serif Tibetan", serif;
+  --font-tibetan-serif: "Noto Serif Tibetan", "Noto Sans Tibetan", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+}

@@ -1,0 +1,437 @@
+/* ============================================================
+   GENERATED FILE — DO NOT EDIT.
+
+   Regenerate with:  npm run sync:design
+   Verify with:      npm run sync:design -- --check
+
+   Source: design-system  Trungtrung app - all screens/_ds/<project>/tokens/
+     fonts.css          sha256 09ee452abb3a1e93
+     colors.css         sha256 69aa7cd4057a5338
+     typography.css     sha256 40e31d0387891a99
+     spacing.css        sha256 370106530fa291ce
+     radius.css         sha256 bf7c9fc6407960c6
+     elevation.css      sha256 f7a0e2e44db44127
+     motion.css         sha256 5b4555d58335a92d
+     base.css           sha256 605d0bcece7fa9be
+
+   The namespace mapping lives in scripts/token-map.ts — edit that,
+   never this file.
+   ============================================================ */
+
+@theme static {
+
+  /* ── fonts.css ──────────────────────────────── */
+  --font-display: var(--font-gabarito), var(--font-plus-jakarta), system-ui, sans-serif;
+  --font-body: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+  --font-tibetan: "Noto Sans Tibetan", var(--font-noto-tibetan), serif;
+  --font-tibetan-serif: var(--font-noto-tibetan), "Noto Sans Tibetan", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+
+  /* ── colors.css ──────────────────────────────── */
+
+  /* Base palette */
+  /* Ground — the pale, cold light of altitude. Never pure white. */
+  --color-ground-000: #FFFFFF;
+  --color-ground-050: #F7FAFB;
+  --color-ground-100: #EDF2F3; /* brand ground */
+  --color-ground-200: #DFE7E9;
+  --color-ground-300: #CBD6D9;
+  --color-ground-400: #AEBDC1;
+
+  /* Ink — the crane's head; all text and outlines derive from here. */
+  --color-ink-950: #0A171D; /* one step below brand ink — the solid edge under an ink control */
+  --color-ink-900: #12222A; /* brand ink */
+  --color-ink-800: #1C3038;
+  --color-ink-700: #2B4249;
+  --color-ink-500: #4E666E;
+  --color-ink-400: #6B838B;
+  --color-ink-300: #8DA2A8;
+
+  /* Accent — deep teal. The single brand colour. */
+  --color-teal-900: #0C4548;
+  --color-teal-800: #12595E;
+  --color-teal-700: #196F74;
+  --color-teal-600: #1F8A90; /* brand accent */
+  --color-teal-500: #2CA5AB;
+  --color-teal-300: #7FCBCE;
+  --color-teal-200: #B4E1E3;
+  --color-teal-100: #DCF0F1;
+
+  /* Mascot secondaries — taken from the crane. Use sparingly, never as UI chrome. */
+  --color-crown-600: #E23B34; /* red crown patch — streaks, hearts, destructive */
+  --color-crown-500: #E85A54; /* the crown lightened — hover only, per the 6% rule */
+  --color-crown-800: #B82E28; /* the darker crown — the solid pressed edge under a red control */
+  --color-crown-100: #FBE3E1;
+  --color-beak-600: #F5A623; /* beak orange — XP, rewards, highlights */
+  --color-beak-100: #FDEDD4;
+  --color-leg-400: #D2918F; /* leg pink — decorative only */
+
+  /* Semantic feedback */
+  --color-grass-600: #2E8B57; /* correct */
+  --color-grass-100: #DDF0E5;
+
+  /* Prayer-flag colours — CONTENT, not chrome. The five, in the fixed order they are taught: sky, air, fire, water, earth. Four of them already exist in the palette and are aliased rather than redefined. Never reuse these as UI colours; they mean one specific thing. */
+  --color-flag-blue: #2E6E8E; /* sky — the one colour the palette lacked */
+  --color-flag-white: var(--color-ground-050); /* air */
+  --color-flag-red: var(--color-crown-600); /* fire */
+  --color-flag-green: var(--color-grass-600); /* water */
+  --color-flag-yellow: var(--color-beak-600); /* earth */
+
+  /* Semantic aliases */
+  --color-surface-app: var(--color-ground-100);
+  --color-surface-card: var(--color-ground-000);
+  --color-surface-sunken: var(--color-ground-200);
+  --color-surface-raised: var(--color-ground-050);
+  --color-surface-ink: var(--color-ink-900);
+  --color-surface-accent: var(--color-teal-600);
+  --color-surface-accent-soft: var(--color-teal-100);
+  --color-surface-reward: var(--color-beak-100);
+  --color-surface-alert: var(--color-crown-100);
+  --color-surface-correct: var(--color-grass-100);
+  --color-fg-heading: var(--color-ink-900);
+  --color-fg-body: var(--color-ink-800);
+  --color-fg-muted: var(--color-ink-400);
+  --color-fg-subtle: var(--color-ink-300);
+  --color-fg-on-ink: var(--color-ground-100);
+  --color-fg-on-accent: #FFFFFF;
+  --color-fg-accent: var(--color-teal-700);
+  --color-fg-link: var(--color-teal-700);
+  --color-fg-link-hover: var(--color-teal-900);
+  --color-fg-tibetan: var(--color-ink-900);
+  --color-rail-track: var(--color-ground-300);
+  --color-rail-active: var(--color-teal-600);
+  --color-rail-done: var(--color-teal-300);
+  --color-rail-locked: var(--color-ground-300);
+  --color-rail-node-done: var(--color-teal-500); /* done nodes: saturated, white content, check badge */
+  --color-rail-node-locked: var(--color-ground-200); /* locked nodes: clearly grey, never teal */
+  --color-divider-soft: var(--color-ground-200); /* the Divider rule — never used as a card border */
+  --color-focus-ring: var(--color-teal-600);
+  --color-scrim: color-mix(in oklab, var(--color-ink-900) 55%, transparent);
+
+  /* ── typography.css ──────────────────────────────── */
+
+  /* Sizes — 1.25 major-third ramp off a 16px body */
+  --text-3xs: 0.6875rem; /* 11 */
+  --text-2xs: 0.75rem; /* 12 */
+  --text-xs: 0.8125rem; /* 13 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-md: 1rem; /* 16 */
+  --text-lg: 1.125rem; /* 18 */
+  --text-xl: 1.375rem; /* 22 */
+  --text-2xl: 1.75rem; /* 28 */
+  --text-3xl: 2.25rem; /* 36 */
+  --text-4xl: 3rem; /* 48 */
+  --text-5xl: 4rem; /* 64 */
+
+  /* Tibetan runs optically small at the same px size — step it up one notch. */
+  --text-tib-xs: 0.875rem; /* Tibetan inside a micro-label (--text-2xs / --text-3xs) */
+  --text-tib-sm: 1.0625rem;
+  --text-tib-md: 1.375rem;
+  --text-tib-lg: 1.875rem;
+  --text-tib-xl: 2.75rem;
+  --text-tib-hero: 4.25rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-display: 800;
+
+  /* Line heights — the one non-negotiable rule of this system. */
+  --leading-latin: 1.55;
+  --leading-tibetan: 2.1;
+  --leading-display: 1.06;
+  --leading-tight: 1.2;
+  --tracking-display: -0.02em;
+  --tracking-body: 0em;
+  --tracking-caps: 0.08em;
+  --tracking-tibetan: 0em; /* never letter-space Tibetan — it breaks stacks */
+
+  /* ── spacing.css ──────────────────────────────── */
+
+  /* 4px base, with a 6px half-step for tight chrome */
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-1h: 6px;
+  --spacing-2: 8px;
+  --spacing-2h: 10px;
+  --spacing-3: 12px;
+  --spacing-3h: 14px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+
+  /* Layout */
+  --container-prose: 62ch;
+  --container-tibetan: 34ch; /* Tibetan wraps badly — keep lines short */
+
+  /* ── radius.css ──────────────────────────────── */
+
+  /* Rounded, huggable — matched to the mascot's geometry. Nothing sharp. */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-pill: 999px;
+  --radius-card: var(--radius-lg);
+  --radius-sheet: var(--radius-2xl);
+  --radius-control: var(--radius-md);
+
+  /* ── elevation.css ──────────────────────────────── */
+
+  /* Fill first, shadow almost never. The system separates surfaces by VALUE, not by hairlines or drop shadows. These three exist for floating layers only. */
+  --shadow-none: none;
+  --shadow-press: inset 0 2px 0 0 color-mix(in oklab, var(--color-ink-900) 8%, transparent);
+  --shadow-lift: 0 1px 0 0 color-mix(in oklab, var(--color-ink-900) 6%, transparent);
+  --shadow-float: 0 8px 24px -8px color-mix(in oklab, var(--color-ink-900) 22%, transparent);
+  --shadow-sheet: 0 -12px 40px -12px color-mix(in oklab, var(--color-ink-900) 20%, transparent);
+  --shadow-keycap: 0 3px 0 0 var(--color-ground-300); /* flat keycap edge on reference grid cells — solid offset, no blur */
+
+  /* The chunky bottom edge on primary buttons — a solid offset, not a blur. */
+  --shadow-edge-accent: 0 4px 0 0 var(--color-teal-800);
+  --shadow-edge-ink: 0 4px 0 0 var(--color-ink-900);
+  --shadow-edge-ground: 0 4px 0 0 var(--color-ground-300);
+  --shadow-edge-crown: 0 4px 0 0 var(--color-crown-800);
+  --shadow-edge-correct: 0 4px 0 0 var(--color-grass-600);
+  --shadow-edge-ground-sm: 0 2px 0 0 var(--color-ground-300); /* the shallow edge on segmented controls */
+
+  /* Inset rings: the one way a fill-based system draws an outline without a border. Two weights only — the node's current-state ring and the row's not-yet-met outline. */
+  --shadow-ring-node: inset 0 0 0 2.5px var(--color-teal-600);
+  --shadow-ring-row-met: inset 0 0 0 2px var(--color-ground-400);
+  --shadow-ring-row-coming: inset 0 0 0 2px var(--color-ground-300);
+  --shadow-ring-marker: inset 0 0 0 2.5px var(--color-ground-400); /* the hollow marker on an unmet capability */
+
+  /* ── motion.css ──────────────────────────────── */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.6, 0, 0.4, 1);
+  --ease-settle: cubic-bezier(0.34, 1.4, 0.64, 1); /* one soft overshoot, no wobble */
+
+  /* ── web only ─────────────────────────────────────────── */
+  /* The design system defines no breakpoints; it is a mobile app. */
+  --breakpoint-xs: 22.5rem; /* 360px — above the 320px floor the design system device-checks */
+  --breakpoint-sm: 40rem; /* 640px */
+  --breakpoint-md: 48rem; /* 768px — the gutter steps 20px -> 40px here */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+
+  /* Match Tailwind's dynamic spacing scale to the 4px design-system base,
+     so p-9 and friends stay on grid even without a named token. */
+  --spacing: 4px;
+}
+
+/* Composed type roles. The design system stores these as a CSS `font`
+   shorthand; emitting the shorthand directly would reset letter-spacing,
+   so each is decomposed into its four properties. */
+@utility type-display {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-display);
+  line-height: var(--leading-display);
+}
+@utility type-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+}
+@utility type-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+}
+@utility type-body {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-latin);
+}
+@utility type-body-strong {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-latin);
+}
+@utility type-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-latin);
+}
+@utility type-label {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+@utility type-tibetan {
+  font-family: var(--font-tibetan);
+  font-size: var(--text-tib-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-tibetan);
+}
+@utility type-tibetan-hero {
+  font-family: var(--font-tibetan);
+  font-size: var(--text-tib-hero);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-tibetan);
+}
+
+:root {
+  /* Tokens with no Tailwind namespace — used via var(). */
+
+  /* spacing.css */
+  --gutter-mobile: 20px;
+  --gutter-desktop: 40px;
+  --touch-min: 48px;
+  --tabbar-height: 76px;
+  --appbar-height: 60px;
+  --rail-node: 68px; /* head-rail node diameter */
+  --rail-gap: 44px; /* vertical distance between nodes */
+  --rail-amplitude: 84px; /* horizontal sway of the winding journey rail */
+
+  /* elevation.css */
+  --edge-depth: 4px;
+  --edge-depth-pressed: 2px; /* the pressed sibling: the edge shrinks, the control sinks onto it */
+  --border-none: 0;
+  --divider-hairline: 1px; /* the one sanctioned line: a half-width rule inside a single card */
+  --outline-mascot: 3px; /* illustration stroke weight */
+  --focus-ring-width: 3px; /* the focus ring's weight — base.css and every field's focus state */
+
+  /* motion.css */
+  --dur-instant: 80ms;
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+  --dur-rail: 720ms; /* rail path draw-on */
+  --press-scale: 0.97;
+  --press-translate: 2px; /* primary buttons sink onto their edge */
+  --hover-lighten: 6%;
+
+  /* The composed roles again as plain variables, so the `font:` shorthand
+     the design system writes (`font: var(--type-body)`) keeps working
+     alongside the @utility form above. */
+  --type-display: var(--font-weight-display) var(--text-4xl) / var(--leading-display) var(--font-display);
+  --type-title: var(--font-weight-bold) var(--text-2xl) / var(--leading-tight) var(--font-display);
+  --type-heading: var(--font-weight-bold) var(--text-xl) / var(--leading-tight) var(--font-display);
+  --type-body: var(--font-weight-regular) var(--text-md) / var(--leading-latin) var(--font-body);
+  --type-body-strong: var(--font-weight-semibold) var(--text-md) / var(--leading-latin) var(--font-body);
+  --type-caption: var(--font-weight-medium) var(--text-sm) / var(--leading-latin) var(--font-body);
+  --type-label: var(--font-weight-bold) var(--text-2xs) / 1.2 var(--font-body);
+  --type-tibetan: var(--font-weight-regular) var(--text-tib-md) / var(--leading-tibetan) var(--font-tibetan);
+  --type-tibetan-hero: var(--font-weight-medium) var(--text-tib-hero) / var(--leading-tibetan) var(--font-tibetan);
+
+  /* Aliases under the original design-system names, so CSS and
+     components copied from the design system work verbatim. */
+  --ground-000: var(--color-ground-000);
+  --ground-050: var(--color-ground-050);
+  --ground-100: var(--color-ground-100);
+  --ground-200: var(--color-ground-200);
+  --ground-300: var(--color-ground-300);
+  --ground-400: var(--color-ground-400);
+  --ink-950: var(--color-ink-950);
+  --ink-900: var(--color-ink-900);
+  --ink-800: var(--color-ink-800);
+  --ink-700: var(--color-ink-700);
+  --ink-500: var(--color-ink-500);
+  --ink-400: var(--color-ink-400);
+  --ink-300: var(--color-ink-300);
+  --teal-900: var(--color-teal-900);
+  --teal-800: var(--color-teal-800);
+  --teal-700: var(--color-teal-700);
+  --teal-600: var(--color-teal-600);
+  --teal-500: var(--color-teal-500);
+  --teal-300: var(--color-teal-300);
+  --teal-200: var(--color-teal-200);
+  --teal-100: var(--color-teal-100);
+  --crown-600: var(--color-crown-600);
+  --crown-500: var(--color-crown-500);
+  --crown-800: var(--color-crown-800);
+  --crown-100: var(--color-crown-100);
+  --beak-600: var(--color-beak-600);
+  --beak-100: var(--color-beak-100);
+  --leg-400: var(--color-leg-400);
+  --grass-600: var(--color-grass-600);
+  --grass-100: var(--color-grass-100);
+  --flag-blue: var(--color-flag-blue);
+  --flag-white: var(--color-flag-white);
+  --flag-red: var(--color-flag-red);
+  --flag-green: var(--color-flag-green);
+  --flag-yellow: var(--color-flag-yellow);
+  --surface-app: var(--color-surface-app);
+  --surface-card: var(--color-surface-card);
+  --surface-sunken: var(--color-surface-sunken);
+  --surface-raised: var(--color-surface-raised);
+  --surface-ink: var(--color-surface-ink);
+  --surface-accent: var(--color-surface-accent);
+  --surface-accent-soft: var(--color-surface-accent-soft);
+  --surface-reward: var(--color-surface-reward);
+  --surface-alert: var(--color-surface-alert);
+  --surface-correct: var(--color-surface-correct);
+  --text-heading: var(--color-fg-heading);
+  --text-body: var(--color-fg-body);
+  --text-muted: var(--color-fg-muted);
+  --text-subtle: var(--color-fg-subtle);
+  --text-on-ink: var(--color-fg-on-ink);
+  --text-on-accent: var(--color-fg-on-accent);
+  --text-accent: var(--color-fg-accent);
+  --text-link: var(--color-fg-link);
+  --text-link-hover: var(--color-fg-link-hover);
+  --text-tibetan: var(--color-fg-tibetan);
+  --rail-track: var(--color-rail-track);
+  --rail-active: var(--color-rail-active);
+  --rail-done: var(--color-rail-done);
+  --rail-locked: var(--color-rail-locked);
+  --rail-node-done: var(--color-rail-node-done);
+  --rail-node-locked: var(--color-rail-node-locked);
+  --divider-soft: var(--color-divider-soft);
+  --focus-ring: var(--color-focus-ring);
+  --scrim: var(--color-scrim);
+  --weight-regular: var(--font-weight-regular);
+  --weight-medium: var(--font-weight-medium);
+  --weight-semibold: var(--font-weight-semibold);
+  --weight-bold: var(--font-weight-bold);
+  --weight-display: var(--font-weight-display);
+  --space-0: var(--spacing-0);
+  --space-1: var(--spacing-1);
+  --space-1h: var(--spacing-1h);
+  --space-2: var(--spacing-2);
+  --space-2h: var(--spacing-2h);
+  --space-3: var(--spacing-3);
+  --space-3h: var(--spacing-3h);
+  --space-4: var(--spacing-4);
+  --space-5: var(--spacing-5);
+  --space-6: var(--spacing-6);
+  --space-7: var(--spacing-7);
+  --space-8: var(--spacing-8);
+  --space-10: var(--spacing-10);
+  --space-12: var(--spacing-12);
+  --space-16: var(--spacing-16);
+  --space-20: var(--spacing-20);
+  --space-24: var(--spacing-24);
+  --measure-prose: var(--container-prose);
+  --measure-tibetan: var(--container-tibetan);
+  --edge-accent: var(--shadow-edge-accent);
+  --edge-ink: var(--shadow-edge-ink);
+  --edge-ground: var(--shadow-edge-ground);
+  --edge-crown: var(--shadow-edge-crown);
+  --edge-correct: var(--shadow-edge-correct);
+  --edge-ground-sm: var(--shadow-edge-ground-sm);
+  --ring-node: var(--shadow-ring-node);
+  --ring-row-met: var(--shadow-ring-row-met);
+  --ring-row-coming: var(--shadow-ring-row-coming);
+  --ring-marker: var(--shadow-ring-marker);
+}
+
+/* 15 tokens dropped by scripts/token-map.ts:
+     documentation surfaces — the design system marks these board/specimen chrome, never product UI
+       --board-ground, --board-ink, --board-card, --board-accent, --board-blueprint-ground, --board-blueprint-card, --board-blueprint-ink, --board-blueprint-accent, --board-blueprint-accent-hi, --board-blueprint-accent-dim, --board-kraft-ground, --board-kraft-card, --board-kraft-ink, --board-kraft-accent, --board-kraft-accent-hi
+ */

@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../styles/theme.generated.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   shadcn's semantic layer, resolved onto the design system.
+
+   shadcn ships a grayscale theme — every default is oklch(L 0 0).
+   This file is where that becomes the product's palette. Nothing below
+   invents a colour: every value is a token from styles/theme.generated.css,
+   which scripts/sync-design.ts pulls from the design-system repo.
+
+   Add a colour here, never a hex. `npm run check:adherence` fails on a raw
+   hex in this directory for that reason.
+   ============================================================ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* The two faces the tool sets text in. Both are loaded by next/font in
+     app/layout.tsx; --font-body and --font-display come from the design
+     system's fonts.css via the generated theme.
+
+     This is also the fix for a real defect: --font-sans used to be declared
+     as `var(--font-sans)` — a self-reference that resolves to nothing — while
+     the loaded face was exposed as --font-geist-sans. Every `font-sans`
+     utility in the app silently fell back to a generic face. */
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+}
+
+/* The radius, mono and Tibetan scales are NOT redeclared here. The design
+   system owns them and the generated theme already emits them; shadcn's
+   calc()-derived ladder off a single --radius is deliberately dropped so
+   `rounded-lg` means the system's 20px rather than a computed approximation. */
+
+:root {
+  --background: var(--color-surface-app);
+  --foreground: var(--color-fg-body);
+
+  /* The card is the lit plane. The system separates surfaces by VALUE rather
+     than by hairlines, so a card is a lighter fill on a cooler ground — not a
+     bordered box. See components/ui/card.tsx. */
+  --card: var(--color-surface-card);
+  --card-foreground: var(--color-fg-body);
+  --popover: var(--color-surface-card);
+  --popover-foreground: var(--color-fg-body);
+
+  /* One brand colour, used for the thing you are meant to press.
+     Stepped one notch down the ramp from the --surface-accent the design
+     system pairs with white text: that pairing measures 4.12:1, and a button
+     label at 16px needs 4.5:1. teal-700 under the same white gives 5.89:1.
+     The accent itself is unchanged everywhere it is not carrying text —
+     --ring below is still the brand teal. */
+  --primary: var(--color-teal-700);
+  --primary-foreground: var(--color-fg-on-accent);
+
+  --secondary: var(--color-ground-200);
+  --secondary-foreground: var(--color-fg-heading);
+  --muted: var(--color-ground-200);
+  /* Likewise one notch down from --text-muted, which is 4.00:1 on a card.
+     This tool is read for hours at a time; ink-500 gives 6.09:1. */
+  --muted-foreground: var(--color-ink-500);
+
+  /* Hover and highlight pick up the accent rather than going grey, which is
+     what stops menus and rows reading as unstyled. */
+  --accent: var(--color-teal-100);
+  --accent-foreground: var(--color-teal-900);
+
+  --destructive: var(--color-crown-600);
+  --destructive-foreground: var(--color-fg-on-accent);
+
+  --border: var(--color-ground-200);
+  --input: var(--color-ground-300);
+  --ring: var(--color-teal-600);
+
+  /* Takes over time is one series, so the ramp runs through the accent and
+     ends on a signal colour rather than through five greys. */
+  --chart-1: var(--color-teal-600);
+  --chart-2: var(--color-teal-500);
+  --chart-3: var(--color-teal-300);
+  --chart-4: var(--color-beak-600);
+  --chart-5: var(--color-ink-500);
+
+  /* Components that compute off a single radius get the card's. */
+  --radius: var(--radius-card);
+}
+
+/* ============================================================
+   Dark.
+
+   NOTE: this is studio-only and is NOT a design-system claim. The design
+   system's colors.css defines a light palette and nothing else — there is no
+   upstream dark theme to sync. The values below are derived here by inverting
+   the ground/ink ramps and stepping the accent up one stop so it holds its
+   contrast on a dark field. If the design system ever ships a dark palette,
+   that one wins and this block goes.
+
+   It earns its place because the tool is used in long sittings at a
+   microphone, where a full-brightness page is the wrong thing to stare at.
+   ============================================================ */
+.dark {
+  --background: var(--color-ink-950);
+  --foreground: var(--color-ground-100);
+
+  /* Two steps up the ink ramp rather than one. --shadow-lift is a dark shadow
+     and is invisible here, so the value step is doing all the work of telling
+     a card from the page: ink-900 would leave it at 1.12:1, ink-800 gives
+     1.33:1 and still holds 12.2:1 for body text. */
+  --card: var(--color-ink-800);
+  --card-foreground: var(--color-ground-100);
+  --popover: var(--color-ink-800);
+  --popover-foreground: var(--color-ground-100);
+
+  --primary: var(--color-teal-500);
+  --primary-foreground: var(--color-ink-950);
+
+  --secondary: var(--color-ink-700);
+  --secondary-foreground: var(--color-ground-100);
+  --muted: var(--color-ink-700);
+  --muted-foreground: var(--color-ink-300);
+
+  --accent: var(--color-ink-700);
+  --accent-foreground: var(--color-teal-300);
+
+  --destructive: var(--color-crown-500);
+  --destructive-foreground: var(--color-ink-950);
+
+  --border: var(--color-ink-700);
+  --input: var(--color-ink-700);
+  --ring: var(--color-teal-500);
+
+  --chart-1: var(--color-teal-500);
+  --chart-2: var(--color-teal-300);
+  --chart-3: var(--color-teal-700);
+  --chart-4: var(--color-beak-600);
+  --chart-5: var(--color-ink-300);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    line-height: var(--leading-latin);
+  }
+
+  /* Headings carry the display face. Sizes stay with the component that sets
+     them; this only decides the family and the tight display leading. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  /* One focus treatment, at the width the design system names. The tool is
+     driven from the keyboard, so this is load-bearing rather than a courtesy. */
+  :focus-visible {
+    outline: var(--focus-ring-width) solid var(--color-teal-600);
+    outline-offset: 2px;
+  }
+
+  .dark :focus-visible {
+    outline-color: var(--color-teal-500);
+  }
+}
+
+/* A key on the keyboard, drawn as a key.
+
+   The recording screen is driven entirely from the keyboard — the on-screen
+   buttons are labels for keys, not the interface itself. The design system
+   already ships the flat keycap edge (--shadow-keycap: a solid offset, no
+   blur), so the hint and the thing it describes can look like each other. */
+@utility keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  padding-inline: 0.5rem;
+  padding-block: 0.1875rem;
+  border-radius: var(--radius-xs);
+  background: var(--color-surface-card);
+  color: var(--color-fg-heading);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  box-shadow: var(--shadow-keycap);
+}
+
+/* On dark the keycap sits on a card that is already ink-800, so it steps up
+   again and takes the darkest ink as its edge. */
+.dark .keycap {
+  background: var(--color-ink-700);
+  color: var(--color-ground-100);
+  box-shadow: 0 3px 0 0 var(--color-ink-950);
+}

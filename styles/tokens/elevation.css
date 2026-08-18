@@ -1,0 +1,33 @@
+:root {
+  /* Fill first, shadow almost never. The system separates surfaces by VALUE,
+     not by hairlines or drop shadows. These three exist for floating layers only. */
+  --shadow-none: none;
+  --shadow-press: inset 0 2px 0 0 color-mix(in oklab, var(--ink-900) 8%, transparent);
+  --shadow-lift: 0 1px 0 0 color-mix(in oklab, var(--ink-900) 6%, transparent);
+  --shadow-float: 0 8px 24px -8px color-mix(in oklab, var(--ink-900) 22%, transparent);
+  --shadow-sheet: 0 -12px 40px -12px color-mix(in oklab, var(--ink-900) 20%, transparent);
+  --shadow-keycap: 0 3px 0 0 var(--ground-300); /* flat keycap edge on reference grid cells — solid offset, no blur */
+
+  /* The chunky bottom edge on primary buttons — a solid offset, not a blur. */
+  --edge-accent: 0 4px 0 0 var(--teal-800);
+  --edge-ink: 0 4px 0 0 var(--ink-900);
+  --edge-ground: 0 4px 0 0 var(--ground-300);
+  --edge-crown: 0 4px 0 0 var(--crown-800);
+  --edge-correct: 0 4px 0 0 var(--grass-600);
+  --edge-ground-sm: 0 2px 0 0 var(--ground-300); /* the shallow edge on segmented controls */
+  --edge-depth: 4px;
+  --edge-depth-pressed: 2px; /* the pressed sibling: the edge shrinks, the control sinks onto it */
+
+  /* Inset rings: the one way a fill-based system draws an outline without a
+     border. Two weights only — the node's current-state ring and the row's
+     not-yet-met outline. */
+  --ring-node: inset 0 0 0 2.5px var(--teal-600);
+  --ring-row-met: inset 0 0 0 2px var(--ground-400);
+  --ring-row-coming: inset 0 0 0 2px var(--ground-300);
+  --ring-marker: inset 0 0 0 2.5px var(--ground-400); /* the hollow marker on an unmet capability */
+
+  --border-none: 0; /* @kind other */
+  --divider-hairline: 1px; /* the one sanctioned line: a half-width rule inside a single card */
+  --outline-mascot: 3px; /* illustration stroke weight */
+  --focus-ring-width: 3px; /* the focus ring's weight — base.css and every field's focus state */
+}

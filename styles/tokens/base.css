@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--surface-app);
+  color: var(--text-body);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--text-heading);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+p { margin: 0; }
+
+a { color: var(--text-link); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--text-link-hover); }
+
+:where(button, [role="button"], a):focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Any Tibetan text — always this class or the token. Line-height 2.1 is required
+   so the stacked subjoined letters and vowel marks never collide. */
+.tibetan {
+  font-family: var(--font-tibetan);
+  font-size: var(--text-tib-md);
+  line-height: var(--leading-tibetan);
+  letter-spacing: var(--tracking-tibetan);
+  color: var(--text-tibetan);
+  max-width: var(--measure-tibetan);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+}

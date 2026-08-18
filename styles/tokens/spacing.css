@@ -1,0 +1,32 @@
+:root {
+  /* 4px base, with a 6px half-step for tight chrome */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-1h: 6px;
+  --space-2: 8px;
+  --space-2h: 10px;
+  --space-3: 12px;
+  --space-3h: 14px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Layout */
+  --gutter-mobile: 20px;
+  --gutter-desktop: 40px;
+  --measure-prose: 62ch;
+  --measure-tibetan: 34ch; /* Tibetan wraps badly — keep lines short */
+  --touch-min: 48px;
+  --tabbar-height: 76px;
+  --appbar-height: 60px;
+  --rail-node: 68px;      /* head-rail node diameter */
+  --rail-gap: 44px;       /* vertical distance between nodes */
+  --rail-amplitude: 84px; /* horizontal sway of the winding journey rail */
+}
